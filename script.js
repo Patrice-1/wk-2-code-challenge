@@ -1,10 +1,10 @@
 const form = document.querySelector(".shopping");
-const newItem = document.getElementById("item");
+const newItem = document.getElementById("item-input");
 const submitButton = document.querySelector(".add-item");
 const itemContainer = document.querySelector(".items");
 const list = document.querySelector(".list");
 let elementEditing;
-const appKeyName = "MyGroceryApp";
+const appKeyName = "Shopping List";
 const clearButton = document.querySelector(".clear");
 
 let editing = false;
@@ -30,7 +30,7 @@ function init() {
       list.appendChild(markup);
     }
     if (Object.keys(data).length > 0) {
-      itemContainer.classList.add("show-shopping");
+      itemContainer.classList.add("shopping");
     }
   }
 }
@@ -70,7 +70,7 @@ function addItem(e) {
     displayMessage(`${value} successfully added to the list`, "success");
   }
   if (list.children.length > 0) {
-    itemContainer.classList.add("show-shopping");
+    itemContainer.classList.add("shopping");
   }
   newItem.value = "";
 }
@@ -116,7 +116,7 @@ async function deleteItem(e) {
       const value = item.querySelector("p").innerText;
       displayMessage(`Item ${value} removed.`, "danger");
       if (list.children.length === 0) {
-        itemContainer.classList.remove("show-shopping");
+        itemContainer.classList.remove("shopping");
       }
     } else {
     }
