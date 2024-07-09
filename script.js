@@ -25,12 +25,13 @@ function init() {
       const markup = createArticle(value, key);
       const delButton = markup.querySelector(".delete");
       const editButton = markup.querySelector(".edit");
+      const clearButton = markup.querySelector(".clear");
       delButton.onclick = deleteItem;
       editButton.onclick = editItem;
       list.appendChild(markup);
     }
     if (Object.keys(data).length > 0) {
-      itemContainer.classList.add("shopping");
+      itemContainer.classList.add("item-list");
     }
   }
 }
@@ -54,7 +55,7 @@ function addItem(e) {
     dict[id] = newItem.value;
     localStorage.setItem(appKeyName, JSON.stringify(dict));
     postModal();
-    submitButton.innerText = "add-item";
+    submitButton.innerText = "Add Item";
     newItem.value = "";
     editing = false;
   } else {
